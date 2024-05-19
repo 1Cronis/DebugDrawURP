@@ -51,7 +51,7 @@ public class BlitPass : ScriptableRenderPass
     }
 
     // вызывается каждый кадр перед Execute, используйте его для настройки вещей, которые проходу понадобятся
-    public override void Configure(CommandBuffer cmd, RenderTextureDescriptor cameraTextureDescriptor)
+    public override void Configure(UnityEngine.Rendering.CommandBuffer cmd, RenderTextureDescriptor cameraTextureDescriptor)
     {
         // Нельзя читать и записывать в одну и ту же целевую цветовую цель, создайте временную целевую цветовую цель для копирования.
         if (destination == RenderTargetHandle.CameraTarget)
@@ -69,7 +69,7 @@ public class BlitPass : ScriptableRenderPass
     {
 
         // получаем буфер команд для использования
-        CommandBuffer cmd = CommandBufferPool.Get(m_ProfilerTag);
+        UnityEngine.Rendering.CommandBuffer cmd = CommandBufferPool.Get(m_ProfilerTag);
         cmd.Clear();
 
         RenderTextureDescriptor opaqueDesc = renderingData.cameraData.cameraTargetDescriptor;
@@ -100,7 +100,7 @@ public class BlitPass : ScriptableRenderPass
     }
 
     // вызывается после Execute, используйте его для очистки всего, что было выделено в Configure и Execute
-    public override void FrameCleanup(CommandBuffer cmd)
+    public override void FrameCleanup(UnityEngine.Rendering.CommandBuffer cmd)
     {
         if (destination == RenderTargetHandle.CameraTarget)
             cmd.ReleaseTemporaryRT(m_TemporaryColorTexture.id);

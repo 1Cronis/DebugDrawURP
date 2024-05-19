@@ -68,7 +68,7 @@ namespace CustomRenderv2
 
         public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
         {
-            CommandBuffer cb = CommandBufferPool.Get("DrawMesh");
+            UnityEngine.Rendering.CommandBuffer cb = CommandBufferPool.Get("DrawMesh");
 
             // ћожете установить дополнительные свойства или матрицу здесь, если необходимо.
             cb.DrawMesh(Mesh, Matrix, Material);

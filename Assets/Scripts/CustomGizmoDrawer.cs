@@ -34,7 +34,7 @@ public class CustomGizmoDrawer : MonoBehaviour
                 return; // Если камера не найдена, выходим из метода
         }
 
-        CommandBuffer cb = new CommandBuffer();
+        UnityEngine.Rendering.CommandBuffer cb = new UnityEngine.Rendering.CommandBuffer();
         // Не используем флаги AsyncCompute и AsyncGraphics
         cb.SetExecutionFlags(CommandBufferExecutionFlags.None);
 

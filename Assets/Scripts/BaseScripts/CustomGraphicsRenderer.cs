@@ -10,8 +10,8 @@ public class CustomGraphicsRenderer : MonoBehaviour
     //public Material material;
     //public Mesh mesh;
 
-    private CommandBuffer UpdateCommandBuffer;
-    private CommandBuffer FixedUpdateCommandBuffer;
+    private UnityEngine.Rendering.CommandBuffer UpdateCommandBuffer;
+    private UnityEngine.Rendering.CommandBuffer FixedUpdateCommandBuffer;
 
     private Camera sceneViewCamera;
 

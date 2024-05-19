@@ -47,11 +47,11 @@ public class Pass : ScriptableRenderPass, IDisposable
     [SerializeField] Vector3 drawScale;
 
 
-    private CommandBuffer commandBuffer;
+    private UnityEngine.Rendering.CommandBuffer commandBuffer;
 
     public void Init()
     {
-        commandBuffer = new CommandBuffer();
+        commandBuffer = new UnityEngine.Rendering.CommandBuffer();
     }
 
     private Matrix4x4 GetDrawMatrix()
