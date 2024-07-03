@@ -3,7 +3,7 @@ Shader "Custom/CustomRender"
     Properties
     {
         _Color ("Color", Color) = (1,1,1,1)
-        _OccludedColor("Occluded Color", Color) = (1,1,1,0.2)
+        //_OccludedColor("Occluded Color", Color) = (1,0,0,0.2)
     }
 
     SubShader {
@@ -25,7 +25,7 @@ Shader "Custom/CustomRender"
 
             float4 _Color;
            
-
+          
             struct VertexIn
             {
                 float4 vertex : POSITION;
@@ -71,7 +71,7 @@ Shader "Custom/CustomRender"
             #pragma vertex vert          
             #pragma fragment frag
             #pragma fragmentoption ARB_precision_hint_fastest
-
+            float4 _Color;
             half4 _OccludedColor; // Цвет для случаев, когда объект находится в тени
 
             float4 vert(float4 pos : POSITION) : SV_POSITION
@@ -82,6 +82,7 @@ Shader "Custom/CustomRender"
 
             half4 frag(float4 pos : SV_POSITION) : COLOR
             {
+                _OccludedColor = _Color;
                 _OccludedColor.a = 0.2;
                 return _OccludedColor;
             }

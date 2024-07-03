@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -14,8 +13,6 @@ namespace CustomDebugDraw
             MeshWireCube = GetMeshWireCube();
             MeshCube = GetMeshCube();
             MeshSphere = GetMeshSphere();
-
-            materialsBuffer = GetMaterialBuffer();
         }
 
         public static Mesh MeshWireCircle { get; private set; }
@@ -25,9 +22,7 @@ namespace CustomDebugDraw
         public static Mesh MeshCube { get; private set; }
         public static Mesh MeshSphere { get; private set; }
 
-        private static List<Material> materialsBuffer = new List<Material>();
-
-        private static Mesh GetMeshWireCircle(int segments = 100)
+        public static Mesh GetMeshWireCircle(int segments = 100)
         {
             float radius = 1f;
             //int segments = 100;
@@ -55,7 +50,7 @@ namespace CustomDebugDraw
             return mesh;
         }
 
-        private static Mesh GetMeshWireSemiCircle(int segments = 100)
+        public static Mesh GetMeshWireSemiCircle(int segments = 100)
         {
             var mesh = new Mesh();
             float radius = 1f;
@@ -85,7 +80,7 @@ namespace CustomDebugDraw
             return mesh;
         }
 
-        private static Mesh GetMeshCircle(int segments = 100)
+        public static Mesh GetMeshCircle(int segments = 100)
         {
             var mesh = new Mesh();
             float radius = 1f;
@@ -180,12 +175,12 @@ namespace CustomDebugDraw
 
             int[] triangles = new int[]
             {
-        0, 1, 2, 0, 2, 3, // Нижняя грань
-        4, 6, 5, 4, 7, 6, // Верхняя грань
-        0, 4, 1, 1, 4, 5, // Боковые грани
-        1, 5, 2, 2, 5, 6,
-        2, 6, 3, 3, 6, 7,
-        3, 7, 0, 0, 7, 4
+            0, 1, 2, 0, 2, 3, // Нижняя грань
+            4, 6, 5, 4, 7, 6, // Верхняя грань
+            0, 4, 1, 1, 4, 5, // Боковые грани
+            1, 5, 2, 2, 5, 6,
+            2, 6, 3, 3, 6, 7,
+            3, 7, 0, 0, 7, 4
             };
 
             mesh.vertices = vertices;
@@ -255,45 +250,6 @@ namespace CustomDebugDraw
             mesh.RecalculateNormals();
             mesh.RecalculateBounds();
             return mesh;
-        }
-
-
-        public static void TestBufferMaterial()
-        {
-            for (int i = 0; i < materialsBuffer.Count; i++)
-            {
-                Debug.Log($"name {materialsBuffer[i].name}  Color{materialsBuffer[i].color}");
-            }
-        }
-
-        private static List<Material> GetMaterialBuffer()
-        {
-            List<Material> mat = new();
-
-            for (int i = 0; i < 10; i++)
-            {
-                var material = new Material(Shader.Find("Custom/CustomRender"));
-                material.SetColor("_Color", Color.red);
-                material.SetColor("CustomRender", Color.red);
-
-                mat.Add(material);
-            }
-
-            return mat;
-        }
-
-
-
-        public static Material GetMaterial(Color color)
-        {
-            //засирает память
-            // как вариант сделать PoolMaterial  => list с готовыми материалами но пустым цветом 
-            // и при вызове GetMaterial мы берем материал и задаем цвет 
-
-            var material = new Material(Shader.Find("Custom/CustomRender"));
-            material.SetColor("_Color", color);
-            material.SetColor("CustomRender", color);
-            return material;
         }
 
         public static Matrix4x4 GetMatrix(Vector3 position, float size, Vector3 normal = default)

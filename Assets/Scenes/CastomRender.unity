@@ -170,7 +170,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &419260805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,7 +228,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CommandBuffer: {fileID: 1489772401}
-  Graphics: {fileID: 419260805}
   material: {fileID: 2100000, guid: 5c154be676608db458a6d525341d87fa, type: 2}
   mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   mesh2: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
@@ -236,6 +235,7 @@ MonoBehaviour:
   Fps: 300
   customGraphicsON: 0
   CommandBufferON: 1
+  AddList: 0
 --- !u!4 &494814666
 Transform:
   m_ObjectHideFlags: 0
@@ -244,7 +244,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 494814664}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.8, y: -1.12, z: 9.26}
+  m_LocalPosition: {x: 8.8, y: -1.12, z: 2.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -719,7 +719,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1852530421
 Transform:
   m_ObjectHideFlags: 0

@@ -32,7 +32,7 @@ public class CustomGraphicsRenderer : MonoBehaviour
 
     void EditorTest(Editor editor)
     {
-        Debug.Log("EditorTest");
+        //Debug.Log("EditorTest");
     }
 
     void OnSceneGUI(SceneView sceneView)

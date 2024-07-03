@@ -5,7 +5,7 @@ using UnityEngine.Rendering;
 
 namespace CustomDebugDraw
 {
-    [DefaultExecutionOrder(-1)]
+    [DefaultExecutionOrder(-10)]
     public class CommandBufferRendering : MonoBehaviour
     {
         private Camera sceneViewCamera;
@@ -61,10 +61,25 @@ namespace CustomDebugDraw
                 commandBufferPass.FixedUpdateCommandBuffer?.DrawMesh(mesh, matrix4x4, material);
             else
                 commandBufferPass.UpdateCommandBuffer?.DrawMesh(mesh, matrix4x4, material);
+
         }
 
-        private void FixedUpdate() => commandBufferPass?.FixedUpdateCommandBuffer?.Clear();
+        private void FixedUpdate() => ClearBufferFixedUpdate();
 
-        private void Update() => commandBufferPass?.UpdateCommandBuffer?.Clear();
+        private void Update() => ClearBufferUpdate();   
+
+        private void ClearBufferFixedUpdate()
+        {
+            commandBufferPass?.FixedUpdateCommandBuffer?.Clear();
+            MaterialPullComponent.UpdateListMaterialFixedUpdate();
+        }
+
+        private void ClearBufferUpdate()
+        {
+            commandBufferPass?.UpdateCommandBuffer?.Clear();
+            MaterialPullComponent.UpdateListMaterialUpdate();
+        }
     }
+
+    
 }
