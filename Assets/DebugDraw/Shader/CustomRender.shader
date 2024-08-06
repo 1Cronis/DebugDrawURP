@@ -83,7 +83,7 @@ Shader "Custom/CustomRender"
             half4 frag(float4 pos : SV_POSITION) : COLOR
             {
                 _OccludedColor = _Color;
-                _OccludedColor.a = 0.2;
+                _OccludedColor.a = 0.05;
                 return _OccludedColor;
             }
  

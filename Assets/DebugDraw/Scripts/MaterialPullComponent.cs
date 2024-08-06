@@ -73,8 +73,6 @@ namespace CustomDebugDraw
 
         public static void UpdateListMaterialUpdate()
         {
-            Debug.Log($"U{UpdateMaterialsBuffer.Count}");
-            Debug.Log($"U C{countMaterialUpdate}");
             for (int i = countMaterialUpdate; i < UpdateMaterialsBuffer.Count; i++)
             {
                 Object.Destroy(UpdateMaterialsBuffer[i]);
@@ -87,8 +85,6 @@ namespace CustomDebugDraw
 
         public static void UpdateListMaterialFixedUpdate()
         {
-            Debug.Log($"FU{FixedUpdateMaterialsBuffer.Count}");
-            Debug.Log($"FU c{countMaterialFixedUpdate}");
             for (int i = countMaterialFixedUpdate; i < FixedUpdateMaterialsBuffer.Count; i++)
             {
                 Object.Destroy(FixedUpdateMaterialsBuffer[i]);
